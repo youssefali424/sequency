@@ -25,10 +25,10 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/winterbe/sequency.git"
+    "url": "https://github.com/youssefali424/sequency.git"
   },
   "bugs": {
-    "url": "https://github.com/winterbe/sequency/issues"
+    "url": "https://github.com/youssefali424/sequency/issues"
   },
   "files": [
     "lib",
