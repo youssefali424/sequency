@@ -9,7 +9,7 @@ export class None {
      * @param {(value: T) => boolean} predicate
      * @returns {boolean}
      */
-    none<T>(this: Sequence<T>, predicate?: (value: T) => boolean): boolean {
+    none<T>(this: Sequence<T>, predicate?: (value: T) => boolean): boolean | undefined {
         if (predicate == null) {
             return this.iterator.next().done;
         }
