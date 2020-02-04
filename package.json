@@ -1,6 +1,6 @@
 {
   "name": "async-sequency",
-  "version": "0.19.2",
+  "version": "0.19.3",
   "description": "Functional sequences for processing iterable data in JavaScript",
   "main": "lib/Sequence.js",
   "umd:main": "lib-umd/sequency.js",

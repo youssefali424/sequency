@@ -1,73 +1,73 @@
-import {All} from "./all";
-import {Any} from "./any";
-import {AsIterable} from "./asIterable";
-import {Associate} from "./associate";
-import {AssociateBy} from "./associateBy";
-import {Average} from "./average";
-import {Chunk} from "./chunk";
-import {Contains} from "./contains";
-import {Count} from "./count";
-import {Distinct} from "./distinct";
-import {DistinctBy} from "./distinctBy";
-import {Drop} from "./drop";
-import {DropWhile} from "./dropWhile";
-import {ElementAt} from "./elementAt";
-import {ElementAtOrElse} from "./elementAtOrElse";
-import {ElementAtOrNull} from "./elementAtOrNull";
-import {Filter} from "./filter";
-import {FilterIndexed} from "./filterIndexed";
-import {FilterNot} from "./filterNot";
-import {FilterNotNull} from "./filterNotNull";
-import {First} from "./first";
-import {FirstOrNull} from "./firstOrNull";
-import {FlatMap} from "./flatMap";
-import {Flatten} from "./flatten";
-import {Fold} from "./fold";
-import {FoldIndexed} from "./foldIndexed";
-import {ForEach} from "./forEach";
-import {ForEachIndexed} from "./forEachIndexed";
-import {GroupBy} from "./groupBy";
-import {IndexOf} from "./indexOf";
-import {IndexOfFirst} from "./indexOfFirst";
-import {IndexOfLast} from "./indexOfLast";
-import {JoinToString} from "./joinToString";
-import {Last} from "./last";
-import {LastOrNull} from "./lastOrNull";
-import {Map} from "./map";
-import {MapIndexed} from "./mapIndexed";
-import {MapNotNull} from "./mapNotNull";
-import {Max} from "./max";
-import {MaxBy} from "./maxBy";
-import {MaxWith} from "./maxWith";
-import {Merge} from "./merge";
-import {Min} from "./min";
-import {MinBy} from "./minBy";
-import {Minus} from "./minus";
-import {MinWith} from "./minWith";
-import {None} from "./none";
-import {OnEach} from "./onEach";
-import {Partition} from "./partition";
-import {Plus} from "./plus";
-import {Reduce} from "./reduce";
-import {ReduceIndexed} from "./reduceIndexed";
-import {Reverse} from "./reverse";
-import {Single} from "./single";
-import {SingleOrNull} from "./singleOrNull";
-import {Sorted} from "./sorted";
-import {SortedBy} from "./sortedBy";
-import {SortedByDescending} from "./sortedByDescending";
-import {SortedDescending} from "./sortedDescending";
-import {SortedWith} from "./sortedWith";
-import {Sum} from "./sum";
-import {SumBy} from "./sumBy";
-import {Take} from "./take";
-import {TakeWhile} from "./takeWhile";
-import {ToArray} from "./toArray";
-import {ToMap} from "./toMap";
-import {ToSet} from "./toSet";
-import {Unzip} from "./unzip";
-import {WithIndex} from "./withIndex";
-import {Zip} from "./zip";
+import { All } from "./all";
+import { Any } from "./any";
+import { AsIterable } from "./asIterable";
+import { Associate } from "./associate";
+import { AssociateBy } from "./associateBy";
+import { Average } from "./average";
+import { Chunk } from "./chunk";
+import { Contains } from "./contains";
+import { Count } from "./count";
+import { Distinct } from "./distinct";
+import { DistinctBy } from "./distinctBy";
+import { Drop } from "./drop";
+import { DropWhile } from "./dropWhile";
+import { ElementAt } from "./elementAt";
+import { ElementAtOrElse } from "./elementAtOrElse";
+import { ElementAtOrNull } from "./elementAtOrNull";
+import { Filter } from "./filter";
+import { FilterIndexed } from "./filterIndexed";
+import { FilterNot } from "./filterNot";
+import { FilterNotNull } from "./filterNotNull";
+import { First } from "./first";
+import { FirstOrNull } from "./firstOrNull";
+import { FlatMap } from "./flatMap";
+import { Flatten } from "./flatten";
+import { Fold } from "./fold";
+import { FoldIndexed } from "./foldIndexed";
+import { ForEach } from "./forEach";
+import { ForEachIndexed } from "./forEachIndexed";
+import { GroupBy } from "./groupBy";
+import { IndexOf } from "./indexOf";
+import { IndexOfFirst } from "./indexOfFirst";
+import { IndexOfLast } from "./indexOfLast";
+import { JoinToString } from "./joinToString";
+import { Last } from "./last";
+import { LastOrNull } from "./lastOrNull";
+import { Map } from "./map";
+import { MapIndexed } from "./mapIndexed";
+import { MapNotNull } from "./mapNotNull";
+import { Max } from "./max";
+import { MaxBy } from "./maxBy";
+import { MaxWith } from "./maxWith";
+import { Merge } from "./merge";
+import { Min } from "./min";
+import { MinBy } from "./minBy";
+import { Minus } from "./minus";
+import { MinWith } from "./minWith";
+import { None } from "./none";
+import { OnEach } from "./onEach";
+import { Partition } from "./partition";
+import { Plus } from "./plus";
+import { Reduce } from "./reduce";
+import { ReduceIndexed } from "./reduceIndexed";
+import { Reverse } from "./reverse";
+import { Single } from "./single";
+import { SingleOrNull } from "./singleOrNull";
+import { Sorted } from "./sorted";
+import { SortedBy } from "./sortedBy";
+import { SortedByDescending } from "./sortedByDescending";
+import { SortedDescending } from "./sortedDescending";
+import { SortedWith } from "./sortedWith";
+import { Sum } from "./sum";
+import { SumBy } from "./sumBy";
+import { Take } from "./take";
+import { TakeWhile } from "./takeWhile";
+import { ToArray } from "./toArray";
+import { ToMap } from "./toMap";
+import { ToSet } from "./toSet";
+import { Unzip } from "./unzip";
+import { WithIndex } from "./withIndex";
+import { Zip } from "./zip";
 import GeneratorIterator from "./GeneratorIterator";
 import GeneratorSeedIterator from "./GeneratorSeedIterator";
 import { AsyncSequence, asAsyncSequence } from "./asyncSequence";
@@ -75,12 +75,77 @@ import { AsyncSequence, asAsyncSequence } from "./asyncSequence";
 /**
  * @hidden
  */
-export interface SequenceOperators<T> extends All, Any, AsIterable, Associate, AssociateBy<T>, Average, Chunk, Contains, Count, Distinct, DistinctBy, Drop,
-    DropWhile, ElementAt, ElementAtOrElse, ElementAtOrNull, Filter, FilterIndexed, FilterNot, FilterNotNull, First, FirstOrNull, FlatMap, Flatten, Fold, FoldIndexed,
-    ForEach, ForEachIndexed, GroupBy, IndexOf, IndexOfFirst, IndexOfLast, JoinToString, Last, LastOrNull, Map, MapIndexed, MapNotNull, Max, MaxBy, MaxWith, Merge, Min, MinBy,
-    Minus, MinWith, None, OnEach, Partition, Plus, Reduce, ReduceIndexed, Reverse, Single, SingleOrNull, Sorted, SortedBy, SortedByDescending, SortedDescending, SortedWith,
-    Sum, SumBy, Take, TakeWhile, ToArray, ToMap, ToSet, Unzip, WithIndex, Zip {
-}
+export interface SequenceOperators<T>
+  extends All,
+    Any,
+    AsIterable,
+    Associate,
+    AssociateBy<T>,
+    Average,
+    Chunk,
+    Contains,
+    Count,
+    Distinct,
+    DistinctBy,
+    Drop,
+    DropWhile,
+    ElementAt,
+    ElementAtOrElse,
+    ElementAtOrNull,
+    Filter,
+    FilterIndexed,
+    FilterNot,
+    FilterNotNull,
+    First,
+    FirstOrNull,
+    FlatMap,
+    Flatten,
+    Fold,
+    FoldIndexed,
+    ForEach,
+    ForEachIndexed,
+    GroupBy,
+    IndexOf,
+    IndexOfFirst,
+    IndexOfLast,
+    JoinToString,
+    Last,
+    LastOrNull,
+    Map,
+    MapIndexed,
+    MapNotNull,
+    Max,
+    MaxBy,
+    MaxWith,
+    Merge,
+    Min,
+    MinBy,
+    Minus,
+    MinWith,
+    None,
+    OnEach,
+    Partition,
+    Plus,
+    Reduce,
+    ReduceIndexed,
+    Reverse,
+    Single,
+    SingleOrNull,
+    Sorted,
+    SortedBy,
+    SortedByDescending,
+    SortedDescending,
+    SortedWith,
+    Sum,
+    SumBy,
+    Take,
+    TakeWhile,
+    ToArray,
+    ToMap,
+    ToSet,
+    Unzip,
+    WithIndex,
+    Zip {}
 
 /**
  * A Sequence provides a fluent functional API consisting
@@ -89,109 +154,191 @@ export interface SequenceOperators<T> extends All, Any, AsIterable, Associate, A
  * when it's not necessary. Sequences can be iterated only once.
  */
 export default interface Sequence<T> extends SequenceOperators<T> {
-    readonly iterator: Iterator<T>;
+  readonly iterator: Iterator<T>;
 }
 
 class SequenceImpl<T> {
-    constructor(readonly iterator: Iterator<T>) {
-    }
+  constructor(readonly iterator: Iterator<T>) {}
 }
 
-applyMixins(SequenceImpl, [All, Any, AsIterable, Associate, AssociateBy, Average, Chunk, Contains, Count, Distinct, DistinctBy, Drop,
-    DropWhile, ElementAt, ElementAtOrElse, ElementAtOrNull, Filter, FilterIndexed, FilterNot, FilterNotNull, First, FirstOrNull, FlatMap, Flatten, Fold, FoldIndexed,
-    ForEach, ForEachIndexed, GroupBy, IndexOf, IndexOfFirst, IndexOfLast, JoinToString, Last, LastOrNull, Map, MapIndexed, MapNotNull, Max, MaxBy, MaxWith, Merge, Min, MinBy,
-    Minus, MinWith, None, OnEach, Partition, Plus, Reduce, ReduceIndexed, Reverse, Single, SingleOrNull, Sorted, SortedBy, SortedByDescending, SortedDescending, SortedWith,
-    Sum, SumBy, Take, TakeWhile, ToArray, ToMap, ToSet, Unzip, WithIndex, Zip]);
+applyMixins(SequenceImpl, [
+  All,
+  Any,
+  AsIterable,
+  Associate,
+  AssociateBy,
+  Average,
+  Chunk,
+  Contains,
+  Count,
+  Distinct,
+  DistinctBy,
+  Drop,
+  DropWhile,
+  ElementAt,
+  ElementAtOrElse,
+  ElementAtOrNull,
+  Filter,
+  FilterIndexed,
+  FilterNot,
+  FilterNotNull,
+  First,
+  FirstOrNull,
+  FlatMap,
+  Flatten,
+  Fold,
+  FoldIndexed,
+  ForEach,
+  ForEachIndexed,
+  GroupBy,
+  IndexOf,
+  IndexOfFirst,
+  IndexOfLast,
+  JoinToString,
+  Last,
+  LastOrNull,
+  Map,
+  MapIndexed,
+  MapNotNull,
+  Max,
+  MaxBy,
+  MaxWith,
+  Merge,
+  Min,
+  MinBy,
+  Minus,
+  MinWith,
+  None,
+  OnEach,
+  Partition,
+  Plus,
+  Reduce,
+  ReduceIndexed,
+  Reverse,
+  Single,
+  SingleOrNull,
+  Sorted,
+  SortedBy,
+  SortedByDescending,
+  SortedDescending,
+  SortedWith,
+  Sum,
+  SumBy,
+  Take,
+  TakeWhile,
+  ToArray,
+  ToMap,
+  ToSet,
+  Unzip,
+  WithIndex,
+  Zip
+]);
 
 function applyMixins(derivedCtor: any, baseCtors: any[]) {
-    baseCtors.forEach(baseCtor => {
-        Object.getOwnPropertyNames(baseCtor.prototype).forEach(name => {
-            derivedCtor.prototype[name] = baseCtor.prototype[name];
-        });
+  baseCtors.forEach(baseCtor => {
+    Object.getOwnPropertyNames(baseCtor.prototype).forEach(name => {
+      derivedCtor.prototype[name] = baseCtor.prototype[name];
     });
+  });
 }
 
 export function sequenceOf<T>(...args: Array<T>): Sequence<T> {
-    return asSequence(args);
+  return asSequence(args);
 }
 
 export function emptySequence<T>(): Sequence<T> {
-    return asSequence([]);
+  return asSequence([]);
 }
 
 export function asSequence<T>(iterable: Iterable<T>): Sequence<T> {
-    if (iterable === null) {
-        throw new Error("Cannot create sequence for input: null");
-    }
-    if (iterable === undefined) {
-        throw new Error("Cannot create sequence for input: undefined");
-    }
-    if (iterable[Symbol.iterator] == null) {
-        throw new Error("Cannot create sequence for non-iterable input: " + iterable);
-    }
-    const iterator = iterable[Symbol.iterator]();
-    return createSequence<T>(iterator);
+  if (iterable === null) {
+    throw new Error("Cannot create sequence for input: null");
+  }
+  if (iterable === undefined) {
+    throw new Error("Cannot create sequence for input: undefined");
+  }
+  if (iterable[Symbol.iterator] == null) {
+    throw new Error(
+      "Cannot create sequence for non-iterable input: " + iterable
+    );
+  }
+  const iterator = iterable[Symbol.iterator]();
+  return createSequence<T>(iterator);
 }
 export function asyncSequenceOf<T>(...args: Array<T>): AsyncSequence<T> {
-    // let arr:Iterable<T> = args;
-    var asyncIterable:AsyncIterableIterator<T>= {
-        [Symbol.asyncIterator]: function(){return this;},
-        next: async function():Promise<IteratorResult<T>>{
-            if (args.length) {
-              return Promise.resolve({
-                value: args.shift() as T,
-                done: false
-              });
-            } else {
-              return Promise.resolve({
-                value:undefined as any,
-                done: true
-              });
-            }
-          }
+  // let arr:Iterable<T> = args;
+  let asyncIterable: AsyncIterableIterator<T> = {
+    [Symbol.asyncIterator]: function() {
+      return this;
+    },
+    next: async function(): Promise<IteratorResult<T>> {
+      if (args.length) {
+        return Promise.resolve({
+          value: args.shift() as T,
+          done: false
+        });
+      } else {
+        return Promise.resolve({
+          value: undefined as any,
+          done: true
+        });
+      }
     }
-    return asAsyncSequence(asyncIterable);
+  };
+  return asAsyncSequence(asyncIterable);
 }
 export function createSequence<T>(iterator: Iterator<T>): Sequence<T> {
-    return new SequenceImpl(iterator) as any;
+  return new SequenceImpl(iterator) as any;
 }
 
 export function isSequence<T>(object: any): object is Sequence<T> {
-    return object instanceof SequenceImpl;
+  return object instanceof SequenceImpl;
 }
 
-export function extendSequence(mixin: { new(): any }) {
-    applyMixins(SequenceImpl, [mixin]);
+export function extendSequence(mixin: { new (): any }) {
+  applyMixins(SequenceImpl, [mixin]);
 }
 
-export function generateSequence<T>(nextFunction: () => T | null | undefined): Sequence<T>;
-export function generateSequence<T>(seedFunction: () => T | null | undefined, nextFunction: (item: T) => T | null | undefined): Sequence<T>;
-export function generateSequence<T>(seed: T | null | undefined, nextFunction: (item: T) => T | null | undefined): Sequence<T>;
+export function generateSequence<T>(
+  nextFunction: () => T | null | undefined
+): Sequence<T>;
+export function generateSequence<T>(
+  seedFunction: () => T | null | undefined,
+  nextFunction: (item: T) => T | null | undefined
+): Sequence<T>;
+export function generateSequence<T>(
+  seed: T | null | undefined,
+  nextFunction: (item: T) => T | null | undefined
+): Sequence<T>;
 export function generateSequence<T>(a: any, b?: any): Sequence<T> {
-    if (typeof a === "function" && b == null) {
-        return createSequence<T>(new GeneratorIterator(a));
-    }
-    const seed = typeof a === "function" ? a() : a;
-    return seed != null
-        ? createSequence<T>(new GeneratorSeedIterator(seed, b))
-        : emptySequence<T>();
+  if (typeof a === "function" && b == null) {
+    return createSequence<T>(new GeneratorIterator(a));
+  }
+  const seed = typeof a === "function" ? a() : a;
+  return seed != null
+    ? createSequence<T>(new GeneratorSeedIterator(seed, b))
+    : emptySequence<T>();
 }
 
-export function range(start: number, endInclusive: number, step: number = 1): Sequence<number> {
-    if (start > endInclusive) {
-        throw new Error(`start [${start}] must be lower then endInclusive [${endInclusive}]`);
+export function range(
+  start: number,
+  endInclusive: number,
+  step: number = 1
+): Sequence<number> {
+  if (start > endInclusive) {
+    throw new Error(
+      `start [${start}] must be lower then endInclusive [${endInclusive}]`
+    );
+  }
+  if (start === endInclusive) {
+    return emptySequence();
+  }
+  let current = start;
+  return generateSequence(() => {
+    try {
+      return current <= endInclusive ? current : undefined;
+    } finally {
+      current += step;
     }
-    if (start === endInclusive) {
-        return emptySequence();
-    }
-    let current = start;
-    return generateSequence(() => {
-        try {
-            return current <= endInclusive
-                ? current
-                : undefined;
-        } finally {
-            current += step;
-        }
-    });
+  });
 }

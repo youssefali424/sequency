@@ -1,5 +1,7 @@
+import { Filter } from "./asyncFilter";
+import { ToArray } from "./asyncToArray";
 
-export interface AsyncSequenceOperators<T> {}
+export interface AsyncSequenceOperators<T> extends Filter,ToArray{}
 export interface AsyncSequence<T> extends AsyncSequenceOperators<T> {
     readonly iterator: AsyncIterableIterator<T>;
 }
@@ -7,7 +9,9 @@ class AsyncSequenceImpl<T> {
     constructor(readonly iterator: AsyncIterableIterator<T>) {
     }
 }
-applyMixins(AsyncSequenceImpl,[]);
+
+applyMixins(AsyncSequenceImpl,[Filter,ToArray]);
+
 function applyMixins(derivedCtor: any, baseCtors: any[]) {
     baseCtors.forEach(baseCtor => {
         Object.getOwnPropertyNames(baseCtor.prototype).forEach(name => {
