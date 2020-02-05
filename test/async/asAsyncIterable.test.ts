@@ -1,4 +1,4 @@
-import { asyncSequenceOf } from "../src/Sequence";
+import { asyncSequenceOf } from "../../src/Sequence";
 
 describe("asIterable", () => {
   it("should return an iterable object conforming to the iterator-protocol", async () => {

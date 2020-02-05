@@ -1,4 +1,4 @@
-import {asyncSequenceOf} from "../src/Sequence";
+import {asyncSequenceOf} from "../../src/Sequence";
 
 describe("associate", () => {
     it("should associate map", async () => {

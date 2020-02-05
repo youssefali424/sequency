@@ -1,4 +1,4 @@
-import {asyncSequenceOf} from "../src/Sequence";
+import {asyncSequenceOf} from "../../src/Sequence";
 
 describe("filter", () => {
     it("asynchronous filter elements", async () => {

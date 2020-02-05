@@ -1,4 +1,4 @@
-import { asyncSequenceOf } from "../src/Sequence";
+import { asyncSequenceOf } from "../../src/Sequence";
 
 describe("any", () => {
     it("should return false", async () => {
