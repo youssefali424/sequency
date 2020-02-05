@@ -1,11 +1,11 @@
 # API Documentation
 
-Sequency is a type-safe functional programming library for processing iterable data such as arrays, sets and maps. It's written in TypeScript, compiles to ES5-compatible JavaScript and works in all current browsers and Node applications.
+Sequency is a type-safe functional programming library for processing iterable data such as arrays, sets and maps. It's written in TypeScript, compiles to ES6-compatible JavaScript and works in all current browsers and Node applications.
 
 Download the [latest release](https://github.com/winterbe/sequency/releases) from [GitHub](https://github.com/winterbe/sequency) or install Sequency from [NPM](https://github.com/winterbe/sequency):
 
 ```bash
-npm install sequency
+npm install async-sequency
 ```
 
 Or [try Sequency](https://npm.runkit.com/sequency) right in your browser.

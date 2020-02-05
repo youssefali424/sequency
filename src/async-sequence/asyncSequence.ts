@@ -2,8 +2,11 @@ import { Filter } from "./asyncFilter";
 import { ToArray } from "./asyncToArray";
 import { All } from "./asyncAll";
 import { Any } from "./asyncAny";
+import { AsIterable } from "./asAsyncIterable";
+import { Associate } from "./asyncAssociate";
+import { AssociateBy } from "./asyncAssociateBy";
 
-export interface AsyncSequenceOperators<T> extends Filter, ToArray,All,Any {}
+export interface AsyncSequenceOperators<T> extends Filter, ToArray,All,Any,AsIterable,Associate,AssociateBy<T> {}
 export interface AsyncSequence<T> extends AsyncSequenceOperators<T> {
   readonly iterator: AsyncIterableIterator<T>;
 }
@@ -11,7 +14,7 @@ class AsyncSequenceImpl<T> {
   constructor(readonly iterator: AsyncIterableIterator<T>) {}
 }
 
-applyMixins(AsyncSequenceImpl, [Filter, ToArray,All,Any]);
+applyMixins(AsyncSequenceImpl, [Filter, ToArray,All,Any,AsIterable,Associate,AssociateBy]);
 
 function applyMixins(derivedCtor: any, baseCtors: any[]) {
   baseCtors.forEach(baseCtor => {

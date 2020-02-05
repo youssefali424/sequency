@@ -1,6 +1,6 @@
 {
   "name": "async-sequency",
-  "version": "0.19.32",
+  "version": "0.19.33",
   "description": "Functional sequences for processing iterable data in JavaScript",
   "main": "lib/Sequence.js",
   "umd:main": "lib-umd/sequency.js",
@@ -54,6 +54,11 @@
   },
   "dependencies": {},
   "jest": {
+    "globals": {
+      "ts-jest": {
+        "tsConfig": "<rootDir>/tsconfig.json"
+      }
+    },
     "moduleFileExtensions": [
       "ts",
       "js"
@@ -81,6 +86,8 @@
     "iterator",
     "array",
     "map",
-    "set"
+    "set",
+    "parallel",
+    "async"
   ]
 }
