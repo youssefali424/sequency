@@ -249,7 +249,9 @@ export function sequenceOf<T>(...args: Array<T>): Sequence<T> {
 export function emptySequence<T>(): Sequence<T> {
   return asSequence([]);
 }
-
+export function emptyAsyncSequence<T>(): AsyncSequence<T> {
+  return asyncSequenceOf(...[]);
+}
 export function asSequence<T>(iterable: Iterable<T>): Sequence<T> {
   if (iterable === null) {
     throw new Error("Cannot create sequence for input: null");
