@@ -1,15 +1,31 @@
-import { Filter } from "./asyncFilter";
-import { ToArray } from "./asyncToArray";
-import { All } from "./asyncAll";
-import { Any } from "./asyncAny";
-import { AsIterable } from "./asAsyncIterable";
-import { Associate } from "./asyncAssociate";
-import { AssociateBy } from "./asyncAssociateBy";
+import { Filter } from "./filter";
+import { ToArray } from "./toArray";
+import { All } from "./all";
+import { Any } from "./any";
+import { AsIterable } from "./asIterable";
+import { Associate } from "./associate";
+import { AssociateBy } from "./associateBy";
 import { Average } from "./average";
 import { Chunk } from "./chunk";
 import { Contains } from "./contains";
+import { Count } from "./count";
+import { Distinct } from "./distinct";
+import { DistinctBy } from "./distinctBy";
 
-export interface AsyncSequenceOperators<T> extends Filter, ToArray,All,Any,AsIterable,Associate,AssociateBy<T>,Average,Chunk,Contains {}
+export interface AsyncSequenceOperators<T>
+  extends Filter,
+    ToArray,
+    All,
+    Any,
+    AsIterable,
+    Associate,
+    AssociateBy<T>,
+    Average,
+    Chunk,
+    Contains,
+    Count,
+    Distinct,
+    DistinctBy {}
 export interface AsyncSequence<T> extends AsyncSequenceOperators<T> {
   readonly iterator: AsyncIterableIterator<T>;
 }
@@ -17,7 +33,21 @@ class AsyncSequenceImpl<T> {
   constructor(readonly iterator: AsyncIterableIterator<T>) {}
 }
 
-applyMixins(AsyncSequenceImpl, [Filter, ToArray,All,Any,AsIterable,Associate,AssociateBy,Average,Chunk,Contains]);
+applyMixins(AsyncSequenceImpl, [
+  Filter,
+  ToArray,
+  All,
+  Any,
+  AsIterable,
+  Associate,
+  AssociateBy,
+  Average,
+  Chunk,
+  Contains,
+  Count,
+  Distinct,
+  DistinctBy
+]);
 
 function applyMixins(derivedCtor: any, baseCtors: any[]) {
   baseCtors.forEach(baseCtor => {
