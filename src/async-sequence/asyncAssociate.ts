@@ -7,7 +7,7 @@ export class Associate {
      * duplicate keys the last key-value pair overrides the other.
      *
      * @param {(value: T) => [K , V]} transform
-     * @returns {Map<K, V>}
+     * @returns {Promise<Map<K, V>>
      */
     async associate<T, K, V>(this: AsyncSequence<T>, transform: (value: T) => [K, V]): Promise<Map<K, V>> {
         const result = new Map<K, V>();

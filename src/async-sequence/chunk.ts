@@ -7,7 +7,7 @@ export class Chunk {
      * the given `chunkSize` and returns all chunks as array.
      *
      * @param {number} chunkSize
-     * @returns {Array<Array<T>>}
+     * @returns {Promise<Array<Array<T>>>}
      */
     async chunk<T>(this: AsyncSequence<T>, chunkSize: number): Promise<Array<Array<T>>> {
         if (chunkSize < 1) {

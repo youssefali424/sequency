@@ -5,7 +5,7 @@ export class Average {
     /**
      * Returns the average of all numbers of the sequence or `NaN` if the sequence is empty.
      *
-     * @returns {number}
+     * @returns {Promise<number>}
      */
     async average(this: AsyncSequence<number>): Promise<number> {
         let sum = 0;
