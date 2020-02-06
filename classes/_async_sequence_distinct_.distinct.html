@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Filter | Sequency</title>
+	<title>Distinct | Sequency</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -54,13 +54,13 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="../modules/_async_sequence_asyncfilter_.html">&quot;async-sequence/asyncFilter&quot;</a>
+					<a href="../modules/_async_sequence_distinct_.html">&quot;async-sequence/distinct&quot;</a>
 				</li>
 				<li>
-					<a href="_async_sequence_asyncfilter_.filter.html">Filter</a>
+					<a href="_async_sequence_distinct_.distinct.html">Distinct</a>
 				</li>
 			</ul>
-			<h1>Class Filter</h1>
+			<h1>Class Distinct</h1>
 		</div>
 	</div>
 </header>
@@ -71,7 +71,7 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">Filter</span>
+						<span class="target">Distinct</span>
 						<ul class="tsd-hierarchy">
 							<li>
 								<a href="../interfaces/_async_sequence_asyncsequence_.asyncsequenceoperators.html" class="tsd-signature-type">AsyncSequenceOperators</a>
@@ -87,7 +87,7 @@
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter"><a href="_async_sequence_asyncfilter_.filter.html#filter" class="tsd-kind-icon">filter</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter"><a href="_async_sequence_distinct_.distinct.html#distinct" class="tsd-kind-icon">distinct</a></li>
 							</ul>
 						</section>
 					</div>
@@ -96,21 +96,21 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
-					<a name="filter" class="tsd-anchor"></a>
-					<h3>filter</h3>
+					<a name="distinct" class="tsd-anchor"></a>
+					<h3>distinct</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
-						<li class="tsd-signature tsd-kind-icon">filter&lt;T&gt;<span class="tsd-signature-symbol">(</span>this<span class="tsd-signature-symbol">: </span><a href="../interfaces/_async_sequence_asyncsequence_.asyncsequence.html" class="tsd-signature-type">AsyncSequence</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span>, predicate<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>item<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/_async_sequence_asyncsequence_.asyncsequence.html" class="tsd-signature-type">AsyncSequence</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">distinct&lt;T&gt;<span class="tsd-signature-symbol">(</span>this<span class="tsd-signature-symbol">: </span><a href="../interfaces/_async_sequence_asyncsequence_.asyncsequence.html" class="tsd-signature-type">AsyncSequence</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/_async_sequence_asyncsequence_.asyncsequence.html" class="tsd-signature-type">AsyncSequence</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/youssefali424/sequency/blob/a595f55/src/async-sequence/asyncFilter.ts#L29">async-sequence/asyncFilter.ts:29</a></li>
+									<li>Defined in async-sequence/distinct.ts:28</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Returns a new sequence consisting of all elements that match the given <code>predicate</code>.</p>
+									<p>Returns a new sequence which discards all duplicate elements.</p>
 								</div>
 							</div>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -123,27 +123,6 @@
 							<ul class="tsd-parameters">
 								<li>
 									<h5>this: <a href="../interfaces/_async_sequence_asyncsequence_.asyncsequence.html" class="tsd-signature-type">AsyncSequence</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h5>
-								</li>
-								<li>
-									<h5>predicate: <span class="tsd-signature-symbol">(</span>item<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">boolean</span></h5>
-									<ul class="tsd-parameters">
-										<li class="tsd-parameter-siganture">
-											<ul class="tsd-signatures tsd-kind-type-literal">
-												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>item<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
-											</ul>
-											<ul class="tsd-descriptions">
-												<li class="tsd-description">
-													<h4 class="tsd-parameters-title">Parameters</h4>
-													<ul class="tsd-parameters">
-														<li>
-															<h5>item: <span class="tsd-signature-type">T</span></h5>
-														</li>
-													</ul>
-													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
-												</li>
-											</ul>
-										</li>
-									</ul>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="../interfaces/_async_sequence_asyncsequence_.asyncsequence.html" class="tsd-signature-type">AsyncSequence</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -159,7 +138,7 @@
 						<a href="../globals.html"><em>Globals</em></a>
 					</li>
 					<li class="current tsd-kind-external-module">
-						<a href="../modules/_async_sequence_asyncfilter_.html">&quot;async-<wbr>sequence/async<wbr>Filter&quot;</a>
+						<a href="../modules/_async_sequence_distinct_.html">&quot;async-<wbr>sequence/distinct&quot;</a>
 					</li>
 				</ul>
 			</nav>
@@ -168,10 +147,10 @@
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-class tsd-parent-kind-external-module">
-						<a href="_async_sequence_asyncfilter_.filter.html" class="tsd-kind-icon">Filter</a>
+						<a href="_async_sequence_distinct_.distinct.html" class="tsd-kind-icon">Distinct</a>
 						<ul>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
-								<a href="_async_sequence_asyncfilter_.filter.html#filter" class="tsd-kind-icon">filter</a>
+								<a href="_async_sequence_distinct_.distinct.html#distinct" class="tsd-kind-icon">distinct</a>
 							</li>
 						</ul>
 					</li>
