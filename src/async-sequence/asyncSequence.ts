@@ -11,6 +11,10 @@ import { Contains } from "./contains";
 import { Count } from "./count";
 import { Distinct } from "./distinct";
 import { DistinctBy } from "./distinctBy";
+import { WithIndex } from "./withIndex";
+import { DropWhile } from "./dropWhile";
+import { Map } from "./map";
+import { Drop } from "./drop";
 
 export interface AsyncSequenceOperators<T>
   extends Filter,
@@ -25,7 +29,11 @@ export interface AsyncSequenceOperators<T>
     Contains,
     Count,
     Distinct,
-    DistinctBy {}
+    DistinctBy,
+    WithIndex,
+    DropWhile,
+    Map,
+    Drop {}
 export interface AsyncSequence<T> extends AsyncSequenceOperators<T> {
   readonly iterator: AsyncIterableIterator<T>;
 }
@@ -46,7 +54,11 @@ applyMixins(AsyncSequenceImpl, [
   Contains,
   Count,
   Distinct,
-  DistinctBy
+  DistinctBy,
+  WithIndex,
+  DropWhile,
+  Map,
+  Drop
 ]);
 
 function applyMixins(derivedCtor: any, baseCtors: any[]) {
