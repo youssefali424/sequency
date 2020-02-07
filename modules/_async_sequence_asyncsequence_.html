@@ -69,6 +69,12 @@
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
 						<section class="tsd-index-section ">
+							<h3>Classes</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-class tsd-parent-kind-external-module tsd-has-type-parameter"><a href="../classes/_async_sequence_asyncsequence_.asyncsequenceimpl.html" class="tsd-kind-icon">Async<wbr>Sequence<wbr>Impl</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
 							<h3>Interfaces</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-interface tsd-parent-kind-external-module tsd-has-type-parameter"><a href="../interfaces/_async_sequence_asyncsequence_.asyncsequence.html" class="tsd-kind-icon">Async<wbr>Sequence</a></li>
@@ -80,6 +86,8 @@
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-function tsd-parent-kind-external-module tsd-has-type-parameter"><a href="_async_sequence_asyncsequence_.html#asasyncsequence" class="tsd-kind-icon">as<wbr>Async<wbr>Sequence</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-external-module tsd-has-type-parameter"><a href="_async_sequence_asyncsequence_.html#createasyncsequence" class="tsd-kind-icon">create<wbr>Async<wbr>Sequence</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module tsd-has-type-parameter"><a href="_async_sequence_asyncsequence_.html#createasyncsequencefromiterator" class="tsd-kind-icon">create<wbr>Async<wbr>Sequence<wbr>From<wbr>Iterator</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-external-module tsd-has-type-parameter"><a href="_async_sequence_asyncsequence_.html#isasynciterableiterator" class="tsd-kind-icon">is<wbr>Async<wbr>Iterable<wbr>Iterator</a></li>
 							</ul>
 						</section>
 					</div>
@@ -91,13 +99,13 @@
 					<a name="asasyncsequence" class="tsd-anchor"></a>
 					<h3>as<wbr>Async<wbr>Sequence</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module tsd-has-type-parameter">
-						<li class="tsd-signature tsd-kind-icon">as<wbr>Async<wbr>Sequence&lt;T&gt;<span class="tsd-signature-symbol">(</span>iterable<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">AsyncIterableIterator</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/_async_sequence_asyncsequence_.asyncsequence.html" class="tsd-signature-type">AsyncSequence</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">as<wbr>Async<wbr>Sequence&lt;T&gt;<span class="tsd-signature-symbol">(</span>iterable<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">AsyncIterableIterator</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Iterable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/_async_sequence_asyncsequence_.asyncsequence.html" class="tsd-signature-type">AsyncSequence</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/youssefali424/sequency/blob/a7a76de/src/async-sequence/asyncSequence.ts#L71">async-sequence/asyncSequence.ts:71</a></li>
+									<li>Defined in <a href="https://github.com/youssefali424/sequency/blob/65401dd/src/async-sequence/asyncSequence.ts#L126">async-sequence/asyncSequence.ts:126</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -109,7 +117,7 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>iterable: <span class="tsd-signature-type">AsyncIterableIterator</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h5>
+									<h5>iterable: <span class="tsd-signature-type">AsyncIterableIterator</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Iterable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="../interfaces/_async_sequence_asyncsequence_.asyncsequence.html" class="tsd-signature-type">AsyncSequence</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -126,7 +134,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/youssefali424/sequency/blob/a7a76de/src/async-sequence/asyncSequence.ts#L88">async-sequence/asyncSequence.ts:88</a></li>
+									<li>Defined in <a href="https://github.com/youssefali424/sequency/blob/65401dd/src/async-sequence/asyncSequence.ts#L154">async-sequence/asyncSequence.ts:154</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -145,6 +153,64 @@
 						</li>
 					</ul>
 				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module tsd-has-type-parameter">
+					<a name="createasyncsequencefromiterator" class="tsd-anchor"></a>
+					<h3>create<wbr>Async<wbr>Sequence<wbr>From<wbr>Iterator</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module tsd-has-type-parameter">
+						<li class="tsd-signature tsd-kind-icon">create<wbr>Async<wbr>Sequence<wbr>From<wbr>Iterator&lt;T&gt;<span class="tsd-signature-symbol">(</span>iterator<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Iterator</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/_async_sequence_asyncsequence_.asyncsequence.html" class="tsd-signature-type">AsyncSequence</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/youssefali424/sequency/blob/65401dd/src/async-sequence/asyncSequence.ts#L204">async-sequence/asyncSequence.ts:204</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-type-parameters-title">Type parameters</h4>
+							<ul class="tsd-type-parameters">
+								<li>
+									<h4>T</h4>
+								</li>
+							</ul>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>iterator: <span class="tsd-signature-type">Iterator</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/_async_sequence_asyncsequence_.asyncsequence.html" class="tsd-signature-type">AsyncSequence</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module tsd-has-type-parameter">
+					<a name="isasynciterableiterator" class="tsd-anchor"></a>
+					<h3>is<wbr>Async<wbr>Iterable<wbr>Iterator</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module tsd-has-type-parameter">
+						<li class="tsd-signature tsd-kind-icon">is<wbr>Async<wbr>Iterable<wbr>Iterator&lt;T&gt;<span class="tsd-signature-symbol">(</span>object<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol"> is </span><span class="tsd-signature-type">AsyncIterableIterator</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/youssefali424/sequency/blob/65401dd/src/async-sequence/asyncSequence.ts#L159">async-sequence/asyncSequence.ts:159</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-type-parameters-title">Type parameters</h4>
+							<ul class="tsd-type-parameters">
+								<li>
+									<h4>T</h4>
+								</li>
+							</ul>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>object: <span class="tsd-signature-type">any</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">object</span><span class="tsd-signature-symbol"> is </span><span class="tsd-signature-type">AsyncIterableIterator</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
 			</section>
 		</div>
 		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
@@ -160,6 +226,9 @@
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
+					<li class=" tsd-kind-class tsd-parent-kind-external-module tsd-has-type-parameter">
+						<a href="../classes/_async_sequence_asyncsequence_.asyncsequenceimpl.html" class="tsd-kind-icon">Async<wbr>Sequence<wbr>Impl</a>
+					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-has-type-parameter">
 						<a href="../interfaces/_async_sequence_asyncsequence_.asyncsequence.html" class="tsd-kind-icon">Async<wbr>Sequence</a>
 					</li>
@@ -171,6 +240,12 @@
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-external-module tsd-has-type-parameter">
 						<a href="_async_sequence_asyncsequence_.html#createasyncsequence" class="tsd-kind-icon">create<wbr>Async<wbr>Sequence</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-external-module tsd-has-type-parameter">
+						<a href="_async_sequence_asyncsequence_.html#createasyncsequencefromiterator" class="tsd-kind-icon">create<wbr>Async<wbr>Sequence<wbr>From<wbr>Iterator</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-external-module tsd-has-type-parameter">
+						<a href="_async_sequence_asyncsequence_.html#isasynciterableiterator" class="tsd-kind-icon">is<wbr>Async<wbr>Iterable<wbr>Iterator</a>
 					</li>
 				</ul>
 			</nav>
