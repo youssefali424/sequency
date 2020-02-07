@@ -32,6 +32,8 @@ import { Fold } from "./fold";
 import { FoldIndexed } from "./foldIndexed";
 import { ForEach } from "./forEach";
 import { ForEachIndexed } from "./forEachIndexed";
+import { Take } from "./take";
+import { TakeWhile } from "./takeWhile";
 
 export interface AsyncSequenceOperators<T>
   extends Filter,
@@ -66,7 +68,9 @@ export interface AsyncSequenceOperators<T>
     Fold,
     FoldIndexed,
     ForEach,
-    ForEachIndexed {}
+    ForEachIndexed,
+    Take,
+    TakeWhile {}
 export interface AsyncSequence<T> extends AsyncSequenceOperators<T> {
   readonly iterator: AsyncIterableIterator<T>;
 }
@@ -107,7 +111,9 @@ applyMixins(AsyncSequenceImpl, [
   Fold,
   FoldIndexed,
   ForEach,
-  ForEachIndexed
+  ForEachIndexed,
+  Take,
+  TakeWhile
 ]);
 
 function applyMixins(derivedCtor: any, baseCtors: any[]) {

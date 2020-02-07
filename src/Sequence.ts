@@ -70,7 +70,9 @@ import { WithIndex } from "./withIndex";
 import { Zip } from "./zip";
 import GeneratorIterator from "./GeneratorIterator";
 import GeneratorSeedIterator from "./GeneratorSeedIterator";
-import { AsyncSequence, asAsyncSequence,AsyncSequenceImpl } from "./async-sequence/asyncSequence";
+import { AsyncSequence, asAsyncSequence,AsyncSequenceImpl, createAsyncSequence } from "./async-sequence/asyncSequence";
+import GeneratorAsyncIterator from "./async-sequence/GeneratorIterator";
+import GeneratorSeedAsyncIterator from "./async-sequence/GeneratorSeedIterator";
 
 /**
  * @hidden
@@ -305,6 +307,26 @@ export function generateSequence<T>(a: any, b?: any): Sequence<T> {
   return seed != null
     ? createSequence<T>(new GeneratorSeedIterator(seed, b))
     : emptySequence<T>();
+}
+export function generateAsyncSequence<T>(
+  nextFunction: () => T | null | undefined
+): AsyncSequence<T>;
+export function generateAsyncSequence<T>(
+  seedFunction: () => T | null | undefined,
+  nextFunction: (item: T) => T | null | undefined
+): AsyncSequence<T>;
+export function generateAsyncSequence<T>(
+  seed: T | null | undefined,
+  nextFunction: (item: T) => T | null | undefined
+): AsyncSequence<T>;
+export function generateAsyncSequence<T>(a: any, b?: any): AsyncSequence<T> {
+  if (typeof a === "function" && b == null) {
+    return createAsyncSequence<T>(new GeneratorAsyncIterator(a));
+  }
+  const seed = typeof a === "function" ? a() : a;
+  return seed != null
+    ? createAsyncSequence<T>(new GeneratorSeedAsyncIterator(seed, b))
+    : emptyAsyncSequence<T>();
 }
 
 export function range(
