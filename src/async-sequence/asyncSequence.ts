@@ -15,6 +15,9 @@ import { WithIndex } from "./withIndex";
 import { DropWhile } from "./dropWhile";
 import { Map } from "./map";
 import { Drop } from "./drop";
+import { ElementAt } from "./elementAt";
+import { ElementAtOrElse } from "./elementAtOrElse";
+import { ElementAtOrNull } from "./elementAtOrNull";
 
 export interface AsyncSequenceOperators<T>
   extends Filter,
@@ -33,7 +36,10 @@ export interface AsyncSequenceOperators<T>
     WithIndex,
     DropWhile,
     Map,
-    Drop {}
+    Drop,
+    ElementAt,
+    ElementAtOrElse,
+    ElementAtOrNull {}
 export interface AsyncSequence<T> extends AsyncSequenceOperators<T> {
   readonly iterator: AsyncIterableIterator<T>;
 }
@@ -58,7 +64,10 @@ applyMixins(AsyncSequenceImpl, [
   WithIndex,
   DropWhile,
   Map,
-  Drop
+  Drop,
+  ElementAt,
+  ElementAtOrElse,
+  ElementAtOrNull
 ]);
 
 function applyMixins(derivedCtor: any, baseCtors: any[]) {
