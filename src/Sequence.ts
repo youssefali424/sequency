@@ -73,6 +73,7 @@ import GeneratorSeedIterator from "./GeneratorSeedIterator";
 import { AsyncSequence, asAsyncSequence,AsyncSequenceImpl, createAsyncSequence } from "./async-sequence/asyncSequence";
 import GeneratorAsyncIterator from "./async-sequence/GeneratorIterator";
 import GeneratorSeedAsyncIterator from "./async-sequence/GeneratorSeedIterator";
+import { ToAsyncSequence } from "./async-sequence/toAsyncSequence";
 
 /**
  * @hidden
@@ -143,6 +144,7 @@ export interface SequenceOperators<T>
     Take,
     TakeWhile,
     ToArray,
+    ToAsyncSequence,
     ToMap,
     ToSet,
     Unzip,
@@ -229,6 +231,7 @@ applyMixins(SequenceImpl, [
   Take,
   TakeWhile,
   ToArray,
+  ToAsyncSequence,
   ToMap,
   ToSet,
   Unzip,

@@ -124,40 +124,26 @@ function applyMixins(derivedCtor: any, baseCtors: any[]) {
   });
 }
 export function asAsyncSequence<T>(
-  iterable: AsyncIterableIterator<T> | Array<T>
+  iterable: AsyncIterableIterator<T> | Iterable<T>
 ): AsyncSequence<T> {
   let asyncIterable: AsyncIterableIterator<T>;
-  if (iterable instanceof Array) {
-    asyncIterable = {
-      [Symbol.asyncIterator]: function() {
-        return this;
-      },
-      next: async function(): Promise<IteratorResult<T>> {
-        if (iterable.length) {
-          return Promise.resolve({
-            value: iterable.shift() as T,
-            done: false
-          });
-        } else {
-          return Promise.resolve({
-            value: undefined as any,
-            done: true
-          });
-        }
-      }
-    };
+  if (!isAsyncIterableIterator(iterable)) {
+    let iterator: Iterator<T>;
+    iterator = createIterator(iterable);
+
+    asyncIterable = createAsyncIterable(iterator);
   } else {
     asyncIterable = iterable;
   }
   if (asyncIterable === null) {
-    throw new Error("Cannot create sequence for input: null");
+    throw new Error("Cannot create async sequence for input: null");
   }
   if (asyncIterable === undefined) {
-    throw new Error("Cannot create sequence for input: undefined");
+    throw new Error("Cannot create async sequence for input: undefined");
   }
   if (asyncIterable[Symbol.asyncIterator] == null) {
     throw new Error(
-      "Cannot create sequence for non-iterable input: " + iterable
+      "Cannot create async sequence for non-iterable input: " + iterable
     );
   }
   const iterator: AsyncIterableIterator<T> = asyncIterable[
@@ -169,4 +155,63 @@ export function createAsyncSequence<T>(
   iterator: AsyncIterableIterator<T>
 ): AsyncSequence<T> {
   return new AsyncSequenceImpl(iterator) as any;
+}
+export function isAsyncIterableIterator<T>(
+  object: any
+): object is AsyncIterableIterator<T> {
+  return (object as AsyncIterableIterator<T>)[Symbol.asyncIterator]
+    ? true
+    : false;
+}
+
+function createIterator<T>(iterable: Iterable<T>): Iterator<T> {
+  if (iterable === null) {
+    throw new Error("Cannot create sequence for input: null");
+  }
+  if (iterable === undefined) {
+    throw new Error("Cannot create sequence for input: undefined");
+  }
+  if (iterable[Symbol.iterator] == null) {
+    throw new Error(
+      "Cannot create sequence for non-iterable input: " + iterable
+    );
+  }
+  return iterable[Symbol.iterator]();
+}
+function createAsyncIterable<T>(
+  iterator: Iterator<T>
+): AsyncIterableIterator<T> {
+  return {
+    [Symbol.asyncIterator]: function() {
+      return this;
+    },
+    next: async function(): Promise<IteratorResult<T>> {
+      let item = iterator.next();
+      if (!item.done) {
+        return Promise.resolve({
+          value: item.value as T,
+          done: false
+        });
+      } else {
+        return Promise.resolve({
+          value: undefined as any,
+          done: true
+        });
+      }
+    }
+  };
+}
+export function createAsyncSequenceFromIterator<T>(
+  iterator: Iterator<T>
+): AsyncSequence<T> {
+  let asyncIterable = createAsyncIterable(iterator);
+  if (asyncIterable[Symbol.asyncIterator] == null) {
+    throw new Error(
+      "Cannot create async sequence for non-iterable input: " + iterator
+    );
+  }
+  const asyncIterator: AsyncIterableIterator<T> = asyncIterable[
+    Symbol.asyncIterator
+  ]();
+  return createAsyncSequence<T>(asyncIterator);
 }
