@@ -7,7 +7,7 @@ export class First {
      * an error.
      *
      * @param {(T) => boolean} predicate
-     * @returns {T}
+     * @returns {Promise<T>}
      */
     async first<T>(this: AsyncSequence<T>, predicate?: (item: T) => boolean): Promise<T> {
         if (predicate != null) {

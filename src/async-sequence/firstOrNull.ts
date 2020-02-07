@@ -22,7 +22,7 @@ export class FirstOrNull {
      * Returns the first element of the sequence or the first element matching `predicate` if present, otherwise returns `null`.
      *
      * @param {(T) => boolean} predicate
-     * @returns {T}
+     * @returns {Promise<T | null>}
      */
     async find<T>(this: AsyncSequence<T>, predicate?: (item: T) => boolean): Promise<T | null>{
         return this.firstOrNull(predicate);

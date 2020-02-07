@@ -32,7 +32,7 @@ export class FlatMap {
      * Transforms each element into a sequence of items and returns a flat single sequence of all those items.
      *
      * @param {(value: S) => Sequence<T>} transform
-     * @returns {Sequence<T>}
+     * @returns {AsyncSequence<T>}
      */
     flatMap<S, T>(this: AsyncSequence<S>, transform: (value: S) => AsyncSequence<T>): AsyncSequence<T> {
         return createAsyncSequence(new FlatMapIterator(transform, this.iterator));

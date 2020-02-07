@@ -7,7 +7,7 @@ export class ElementAtOrNull {
      * is out of bounds.
      *
      * @param {number} index
-     * @returns {T}
+     * @returns {Promise<T | null>}
      */
     async elementAtOrNull<T>(this: AsyncSequence<T>, index: number): Promise<T | null>{
         let i = 0;

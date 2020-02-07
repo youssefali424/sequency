@@ -29,7 +29,7 @@ export class DistinctBy {
    * by the given `selector`.
    *
    * @param {(item: T) => K} selector
-   * @returns {Sequence<T>}
+   * @returns {AsyncSequence<T>}
    */
   distinctBy<T, K>(
     this: AsyncSequence<T>,

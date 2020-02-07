@@ -7,7 +7,7 @@ export class ElementAt {
      * is out of bounds.
      *
      * @param {number} index
-     * @returns {T}
+     * @returns {Promise<T>}
      */
     async elementAt<T>(this: AsyncSequence<T>, index: number): Promise<T> {
         let i = 0;

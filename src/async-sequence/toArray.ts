@@ -24,7 +24,7 @@ export class ToArray {
    * the elements are appended to the end of the array.
    *
    * @param {Array<T>} array
-   * @returns {Array<T>}
+   * @returns {Promise<Array<T>>}
    */
   async toList<T>(this: AsyncSequence<T>, array?: Array<T>): Promise<Array<T>> {
     return await this.toArray(array);
