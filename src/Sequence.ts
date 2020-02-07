@@ -70,7 +70,7 @@ import { WithIndex } from "./withIndex";
 import { Zip } from "./zip";
 import GeneratorIterator from "./GeneratorIterator";
 import GeneratorSeedIterator from "./GeneratorSeedIterator";
-import { AsyncSequence, asAsyncSequence } from "./async-sequence/asyncSequence";
+import { AsyncSequence, asAsyncSequence,AsyncSequenceImpl } from "./async-sequence/asyncSequence";
 
 /**
  * @hidden
@@ -269,25 +269,7 @@ export function asSequence<T>(iterable: Iterable<T>): Sequence<T> {
 }
 export function asyncSequenceOf<T>(...args: Array<T>): AsyncSequence<T> {
   // let arr:Iterable<T> = args;
-  let asyncIterable: AsyncIterableIterator<T> = {
-    [Symbol.asyncIterator]: function() {
-      return this;
-    },
-    next: async function(): Promise<IteratorResult<T>> {
-      if (args.length) {
-        return Promise.resolve({
-          value: args.shift() as T,
-          done: false
-        });
-      } else {
-        return Promise.resolve({
-          value: undefined as any,
-          done: true
-        });
-      }
-    }
-  };
-  return asAsyncSequence(asyncIterable);
+  return asAsyncSequence(args);
 }
 export function createSequence<T>(iterator: Iterator<T>): Sequence<T> {
   return new SequenceImpl(iterator) as any;
@@ -295,6 +277,9 @@ export function createSequence<T>(iterator: Iterator<T>): Sequence<T> {
 
 export function isSequence<T>(object: any): object is Sequence<T> {
   return object instanceof SequenceImpl;
+}
+export function isAsyncSequence<T>(object: any): object is AsyncSequence<T> {
+  return object instanceof AsyncSequenceImpl;
 }
 
 export function extendSequence(mixin: { new (): any }) {

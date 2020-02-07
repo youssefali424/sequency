@@ -21,6 +21,13 @@ import { ElementAtOrNull } from "./elementAtOrNull";
 import { FilterIndexed } from "./filterIndexed";
 import { FilterNot } from "./filterNot";
 import { FilterNotNull } from "./filterNotNull";
+import { First } from "./first";
+import { FirstOrNull } from "./firstOrNull";
+import { FlatMap } from "./flatMap";
+import { Flatten } from "./flatten";
+import { Last } from "./last";
+import { LastOrNull } from "./lastOrNull";
+import { asyncSequenceOf } from "../Sequence";
 
 export interface AsyncSequenceOperators<T>
   extends Filter,
@@ -45,11 +52,17 @@ export interface AsyncSequenceOperators<T>
     ElementAtOrNull,
     FilterIndexed,
     FilterNot,
-    FilterNotNull {}
+    FilterNotNull,
+    First,
+    FirstOrNull,
+    FlatMap,
+    Flatten,
+    Last,
+    LastOrNull {}
 export interface AsyncSequence<T> extends AsyncSequenceOperators<T> {
   readonly iterator: AsyncIterableIterator<T>;
 }
-class AsyncSequenceImpl<T> {
+export class AsyncSequenceImpl<T> {
   constructor(readonly iterator: AsyncIterableIterator<T>) {}
 }
 
@@ -76,7 +89,13 @@ applyMixins(AsyncSequenceImpl, [
   ElementAtOrNull,
   FilterIndexed,
   FilterNot,
-  FilterNotNull
+  FilterNotNull,
+  First,
+  FirstOrNull,
+  FlatMap,
+  Flatten,
+  Last,
+  LastOrNull
 ]);
 
 function applyMixins(derivedCtor: any, baseCtors: any[]) {
@@ -87,20 +106,43 @@ function applyMixins(derivedCtor: any, baseCtors: any[]) {
   });
 }
 export function asAsyncSequence<T>(
-  iterable: AsyncIterableIterator<T>
+  iterable: AsyncIterableIterator<T> | Array<T>
 ): AsyncSequence<T> {
-  if (iterable === null) {
+  let asyncIterable: AsyncIterableIterator<T>;
+  if (iterable instanceof Array) {
+    asyncIterable = {
+      [Symbol.asyncIterator]: function() {
+        return this;
+      },
+      next: async function(): Promise<IteratorResult<T>> {
+        if (iterable.length) {
+          return Promise.resolve({
+            value: iterable.shift() as T,
+            done: false
+          });
+        } else {
+          return Promise.resolve({
+            value: undefined as any,
+            done: true
+          });
+        }
+      }
+    };
+  } else {
+    asyncIterable = iterable;
+  }
+  if (asyncIterable === null) {
     throw new Error("Cannot create sequence for input: null");
   }
-  if (iterable === undefined) {
+  if (asyncIterable === undefined) {
     throw new Error("Cannot create sequence for input: undefined");
   }
-  if (iterable[Symbol.asyncIterator] == null) {
+  if (asyncIterable[Symbol.asyncIterator] == null) {
     throw new Error(
       "Cannot create sequence for non-iterable input: " + iterable
     );
   }
-  const iterator: AsyncIterableIterator<T> = iterable[Symbol.asyncIterator]();
+  const iterator: AsyncIterableIterator<T> = asyncIterable[Symbol.asyncIterator]();
   return createAsyncSequence<T>(iterator);
 }
 export function createAsyncSequence<T>(
