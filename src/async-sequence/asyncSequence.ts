@@ -28,6 +28,10 @@ import { Flatten } from "./flatten";
 import { Last } from "./last";
 import { LastOrNull } from "./lastOrNull";
 import { asyncSequenceOf } from "../Sequence";
+import { Fold } from "./fold";
+import { FoldIndexed } from "./foldIndexed";
+import { ForEach } from "./forEach";
+import { ForEachIndexed } from "./forEachIndexed";
 
 export interface AsyncSequenceOperators<T>
   extends Filter,
@@ -58,7 +62,11 @@ export interface AsyncSequenceOperators<T>
     FlatMap,
     Flatten,
     Last,
-    LastOrNull {}
+    LastOrNull,
+    Fold,
+    FoldIndexed,
+    ForEach,
+    ForEachIndexed {}
 export interface AsyncSequence<T> extends AsyncSequenceOperators<T> {
   readonly iterator: AsyncIterableIterator<T>;
 }
@@ -95,7 +103,11 @@ applyMixins(AsyncSequenceImpl, [
   FlatMap,
   Flatten,
   Last,
-  LastOrNull
+  LastOrNull,
+  Fold,
+  FoldIndexed,
+  ForEach,
+  ForEachIndexed
 ]);
 
 function applyMixins(derivedCtor: any, baseCtors: any[]) {
@@ -142,7 +154,9 @@ export function asAsyncSequence<T>(
       "Cannot create sequence for non-iterable input: " + iterable
     );
   }
-  const iterator: AsyncIterableIterator<T> = asyncIterable[Symbol.asyncIterator]();
+  const iterator: AsyncIterableIterator<T> = asyncIterable[
+    Symbol.asyncIterator
+  ]();
   return createAsyncSequence<T>(iterator);
 }
 export function createAsyncSequence<T>(
