@@ -18,6 +18,9 @@ import { Drop } from "./drop";
 import { ElementAt } from "./elementAt";
 import { ElementAtOrElse } from "./elementAtOrElse";
 import { ElementAtOrNull } from "./elementAtOrNull";
+import { FilterIndexed } from "./filterIndexed";
+import { FilterNot } from "./filterNot";
+import { FilterNotNull } from "./filterNotNull";
 
 export interface AsyncSequenceOperators<T>
   extends Filter,
@@ -39,7 +42,10 @@ export interface AsyncSequenceOperators<T>
     Drop,
     ElementAt,
     ElementAtOrElse,
-    ElementAtOrNull {}
+    ElementAtOrNull,
+    FilterIndexed,
+    FilterNot,
+    FilterNotNull {}
 export interface AsyncSequence<T> extends AsyncSequenceOperators<T> {
   readonly iterator: AsyncIterableIterator<T>;
 }
@@ -67,7 +73,10 @@ applyMixins(AsyncSequenceImpl, [
   Drop,
   ElementAt,
   ElementAtOrElse,
-  ElementAtOrNull
+  ElementAtOrNull,
+  FilterIndexed,
+  FilterNot,
+  FilterNotNull
 ]);
 
 function applyMixins(derivedCtor: any, baseCtors: any[]) {
