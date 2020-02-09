@@ -70,7 +70,12 @@ import { WithIndex } from "./withIndex";
 import { Zip } from "./zip";
 import GeneratorIterator from "./GeneratorIterator";
 import GeneratorSeedIterator from "./GeneratorSeedIterator";
-import { AsyncSequence, asAsyncSequence,AsyncSequenceImpl, createAsyncSequence } from "./async-sequence/asyncSequence";
+import {
+  AsyncSequence,
+  asAsyncSequence,
+  AsyncSequenceImpl,
+  createAsyncSequence
+} from "./async-sequence/asyncSequence";
 import GeneratorAsyncIterator from "./async-sequence/GeneratorIterator";
 import GeneratorSeedAsyncIterator from "./async-sequence/GeneratorSeedIterator";
 import { ToAsyncSequence } from "./async-sequence/toAsyncSequence";

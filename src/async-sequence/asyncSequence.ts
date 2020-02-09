@@ -128,23 +128,10 @@ export function asAsyncSequence<T>(
 ): AsyncSequence<T> {
   let asyncIterable: AsyncIterableIterator<T>;
   if (!isAsyncIterableIterator(iterable)) {
-    let iterator: Iterator<T>;
-    iterator = createIterator(iterable);
-
+    let iterator: Iterator<T> = createIterator(iterable);
     asyncIterable = createAsyncIterable(iterator);
   } else {
     asyncIterable = iterable;
-  }
-  if (asyncIterable === null) {
-    throw new Error("Cannot create async sequence for input: null");
-  }
-  if (asyncIterable === undefined) {
-    throw new Error("Cannot create async sequence for input: undefined");
-  }
-  if (asyncIterable[Symbol.asyncIterator] == null) {
-    throw new Error(
-      "Cannot create async sequence for non-iterable input: " + iterable
-    );
   }
   const iterator: AsyncIterableIterator<T> = asyncIterable[
     Symbol.asyncIterator
@@ -185,11 +172,11 @@ function createAsyncIterable<T>(
     [Symbol.asyncIterator]: function() {
       return this;
     },
-    next: async function(): Promise<IteratorResult<T>> {
+    async next(): Promise<IteratorResult<T>> {
       let item = iterator.next();
       if (!item.done) {
         return Promise.resolve({
-          value: item.value as T,
+          value: item.value,
           done: false
         });
       } else {
