@@ -1,6 +1,6 @@
 {
   "name": "async-sequency",
-  "version": "0.19.38",
+  "version": "0.19.39",
   "description": "Functional sequences for processing iterable data in JavaScript",
   "main": "lib/Sequence.js",
   "umd:main": "lib-umd/sequency.js",
@@ -20,8 +20,8 @@
     "build-prod": "yarn build && yarn docs-publish",
     "prepublishOnly": "yarn build-prod"
   },
-  "author": "Benjamin Winterberg",
-  "homepage": "http://winterbe.com",
+  "author": "Youssef Ali",
+  "homepage": "https://github.com/youssefali424/sequency",
   "license": "MIT",
   "repository": {
     "type": "git",
