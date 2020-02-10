@@ -1,5 +1,8 @@
 import Sequence from "../Sequence";
-import { AsyncSequence, createAsyncSequenceFromIterator } from "./asyncSequence";
+import {
+  AsyncSequence,
+  createAsyncSequenceFromIterator
+} from "./asyncSequence";
 
 export class ToAsyncSequence {
   /**

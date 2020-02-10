@@ -1,83 +1,75 @@
-import {asyncSequenceOf} from "../../src/Sequence";
+import { asyncSequenceOf } from "../../src/Sequence";
 
 describe("associateBy", () => {
-    it("should associate map by keySelector",async () => {
-        const a = {k: 1, v: 11};
-        const b = {k: 2, v: 22};
-        const c = {k: 3, v: 33};
+  it("should associate map by keySelector", async () => {
+    const a = { k: 1, v: 11 };
+    const b = { k: 2, v: 22 };
+    const c = { k: 3, v: 33 };
 
-        const map =await asyncSequenceOf(a, b, c)
-            .associateBy(it => it.k);
+    const map = await asyncSequenceOf(a, b, c).associateBy(it => it.k);
 
-        expect(map.size).toBe(3);
-        expect(map.get(1)).toBe(a);
-        expect(map.get(2)).toBe(b);
-        expect(map.get(3)).toBe(c);
-    });
+    expect(map.size).toBe(3);
+    expect(map.get(1)).toBe(a);
+    expect(map.get(2)).toBe(b);
+    expect(map.get(3)).toBe(c);
+  });
 
-    it("should associate map by key",async () => {
-        const a = {k: 1, v: 11};
-        const b = {k: 2, v: 22};
-        const c = {k: 3, v: 33};
+  it("should associate map by key", async () => {
+    const a = { k: 1, v: 11 };
+    const b = { k: 2, v: 22 };
+    const c = { k: 3, v: 33 };
 
-        const map =await asyncSequenceOf(a, b, c)
-            .associateBy("k");
+    const map = await asyncSequenceOf(a, b, c).associateBy("k");
 
-        expect(map.size).toBe(3);
-        expect(map.get(1)).toBe(a);
-        expect(map.get(2)).toBe(b);
-        expect(map.get(3)).toBe(c);
-    });
+    expect(map.size).toBe(3);
+    expect(map.get(1)).toBe(a);
+    expect(map.get(2)).toBe(b);
+    expect(map.get(3)).toBe(c);
+  });
 
-    it("should associate map by keySelector and valueTransformer",async () => {
-        const a = {k: 1, v: 11};
-        const b = {k: 2, v: 22};
-        const c = {k: 3, v: 33};
+  it("should associate map by keySelector and valueTransformer", async () => {
+    const a = { k: 1, v: 11 };
+    const b = { k: 2, v: 22 };
+    const c = { k: 3, v: 33 };
 
-        const map =await asyncSequenceOf(a, b, c)
-            .associateBy(
-                it => it.k,
-                it => it.v
-            );
+    const map = await asyncSequenceOf(a, b, c).associateBy(
+      it => it.k,
+      it => it.v
+    );
 
-        expect(map.size).toBe(3);
-        expect(map.get(1)).toBe(11);
-        expect(map.get(2)).toBe(22);
-        expect(map.get(3)).toBe(33);
-    });
+    expect(map.size).toBe(3);
+    expect(map.get(1)).toBe(11);
+    expect(map.get(2)).toBe(22);
+    expect(map.get(3)).toBe(33);
+  });
 
-    it("should associate map by key and valueTransformer",async () => {
-        const a = {k: 1, v: 11};
-        const b = {k: 2, v: 22};
-        const c = {k: 3, v: 33};
+  it("should associate map by key and valueTransformer", async () => {
+    const a = { k: 1, v: 11 };
+    const b = { k: 2, v: 22 };
+    const c = { k: 3, v: 33 };
 
-        const map =await asyncSequenceOf(a, b, c)
-            .associateBy(
-                "k",
-                it => it.v
-            );
+    const map = await asyncSequenceOf(a, b, c).associateBy("k", it => it.v);
 
-        expect(map.size).toBe(3);
-        expect(map.get(1)).toBe(11);
-        expect(map.get(2)).toBe(22);
-        expect(map.get(3)).toBe(33);
-    });
+    expect(map.size).toBe(3);
+    expect(map.get(1)).toBe(11);
+    expect(map.get(2)).toBe(22);
+    expect(map.get(3)).toBe(33);
+  });
 
-    it("latest entries should win in case of duplicates",async () => {
-        const a = {k: 1, v: 11};
-        const b = {k: 2, v: 22};
-        const c = {k: 3, v: 33};
-        const d = {k: 2, v: 222};
+  it("latest entries should win in case of duplicates", async () => {
+    const a = { k: 1, v: 11 };
+    const b = { k: 2, v: 22 };
+    const c = { k: 3, v: 33 };
+    const d = { k: 2, v: 222 };
 
-        const map = await asyncSequenceOf(a, b, c, d)
-            .associateBy(
-                it => it.k,
-                it => it.v
-            );
+    const map = await asyncSequenceOf(a, b, c, d).associateBy(
+      it => it.k,
+      it => it.v
+    );
 
-        expect(map.size).toBe(3);
-        expect(map.get(1)).toBe(11);
-        expect(map.get(2)).toBe(222);
-        expect(map.get(3)).toBe(33);
-    });
+    expect(map.size).toBe(3);
+    expect(map.get(1)).toBe(11);
+    expect(map.get(2)).toBe(222);
+    expect(map.get(3)).toBe(33);
+  });
 });
