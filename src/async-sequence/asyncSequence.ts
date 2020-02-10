@@ -34,6 +34,9 @@ import { ForEach } from "./forEach";
 import { ForEachIndexed } from "./forEachIndexed";
 import { Take } from "./take";
 import { TakeWhile } from "./takeWhile";
+import { GroupBy } from "./groupBy";
+import { IndexOf } from "./indexOf";
+import { IndexOfFirst } from "./indexOfFirst";
 
 export interface AsyncSequenceOperators<T>
   extends Filter,
@@ -70,7 +73,10 @@ export interface AsyncSequenceOperators<T>
     ForEach,
     ForEachIndexed,
     Take,
-    TakeWhile {}
+    TakeWhile,
+    GroupBy,
+    IndexOf,
+    IndexOfFirst {}
 export interface AsyncSequence<T> extends AsyncSequenceOperators<T> {
   readonly iterator: AsyncIterableIterator<T>;
 }
@@ -113,7 +119,10 @@ applyMixins(AsyncSequenceImpl, [
   ForEach,
   ForEachIndexed,
   Take,
-  TakeWhile
+  TakeWhile,
+  GroupBy,
+  IndexOf,
+  IndexOfFirst
 ]);
 
 function applyMixins(derivedCtor: any, baseCtors: any[]) {
