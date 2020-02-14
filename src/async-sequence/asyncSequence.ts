@@ -37,6 +37,10 @@ import { TakeWhile } from "./takeWhile";
 import { GroupBy } from "./groupBy";
 import { IndexOf } from "./indexOf";
 import { IndexOfFirst } from "./indexOfFirst";
+import { IndexOfLast } from "./indexOfLast";
+import { JoinToString } from "./joinToString";
+import { MapIndexed } from "./mapIndexed";
+import { MapNotNull } from "./mapNotNull";
 
 export interface AsyncSequenceOperators<T>
   extends Filter,
@@ -76,7 +80,11 @@ export interface AsyncSequenceOperators<T>
     TakeWhile,
     GroupBy,
     IndexOf,
-    IndexOfFirst {}
+    IndexOfFirst,
+    IndexOfLast,
+    JoinToString,
+    MapIndexed,
+    MapNotNull {}
 export interface AsyncSequence<T> extends AsyncSequenceOperators<T> {
   readonly iterator: AsyncIterableIterator<T>;
 }
@@ -122,7 +130,11 @@ applyMixins(AsyncSequenceImpl, [
   TakeWhile,
   GroupBy,
   IndexOf,
-  IndexOfFirst
+  IndexOfFirst,
+  IndexOfLast,
+  JoinToString,
+  MapIndexed,
+  MapNotNull
 ]);
 
 function applyMixins(derivedCtor: any, baseCtors: any[]) {
