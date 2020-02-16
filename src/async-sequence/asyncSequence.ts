@@ -41,6 +41,9 @@ import { IndexOfLast } from "./indexOfLast";
 import { JoinToString } from "./joinToString";
 import { MapIndexed } from "./mapIndexed";
 import { MapNotNull } from "./mapNotNull";
+import { Max } from "./max";
+import { MaxBy } from "./maxBy";
+import { MaxWith } from "./maxWith";
 
 export interface AsyncSequenceOperators<T>
   extends Filter,
@@ -84,7 +87,10 @@ export interface AsyncSequenceOperators<T>
     IndexOfLast,
     JoinToString,
     MapIndexed,
-    MapNotNull {}
+    MapNotNull,
+    Max,
+    MaxBy,
+    MaxWith {}
 export interface AsyncSequence<T> extends AsyncSequenceOperators<T> {
   readonly iterator: AsyncIterableIterator<T>;
 }
@@ -134,7 +140,10 @@ applyMixins(AsyncSequenceImpl, [
   IndexOfLast,
   JoinToString,
   MapIndexed,
-  MapNotNull
+  MapNotNull,
+  Max,
+  MaxBy,
+  MaxWith
 ]);
 
 function applyMixins(derivedCtor: any, baseCtors: any[]) {
