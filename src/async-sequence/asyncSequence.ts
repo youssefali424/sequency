@@ -44,6 +44,11 @@ import { MapNotNull } from "./mapNotNull";
 import { Max } from "./max";
 import { MaxBy } from "./maxBy";
 import { MaxWith } from "./maxWith";
+import { Merge } from "./merge";
+import { Min } from "./min";
+import { MinBy } from "./minBy";
+import { MinWith } from "./minWith";
+import { Minus } from "./minus";
 
 export interface AsyncSequenceOperators<T>
   extends Filter,
@@ -90,7 +95,12 @@ export interface AsyncSequenceOperators<T>
     MapNotNull,
     Max,
     MaxBy,
-    MaxWith {}
+    MaxWith,
+    Merge,
+    Min,
+    MinBy,
+    MinWith,
+    Minus {}
 export interface AsyncSequence<T> extends AsyncSequenceOperators<T> {
   readonly iterator: AsyncIterableIterator<T>;
 }
@@ -143,7 +153,12 @@ applyMixins(AsyncSequenceImpl, [
   MapNotNull,
   Max,
   MaxBy,
-  MaxWith
+  MaxWith,
+  Merge,
+  Min,
+  MinBy,
+  MinWith,
+  Minus
 ]);
 
 function applyMixins(derivedCtor: any, baseCtors: any[]) {
