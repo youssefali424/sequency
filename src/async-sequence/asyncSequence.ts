@@ -49,6 +49,9 @@ import { Min } from "./min";
 import { MinBy } from "./minBy";
 import { MinWith } from "./minWith";
 import { Minus } from "./minus";
+import { None } from "./none";
+import { OnEach } from "./onEach";
+import { Partition } from "./partition";
 
 export interface AsyncSequenceOperators<T>
   extends Filter,
@@ -100,7 +103,10 @@ export interface AsyncSequenceOperators<T>
     Min,
     MinBy,
     MinWith,
-    Minus {}
+    Minus,
+    None,
+    OnEach,
+    Partition {}
 export interface AsyncSequence<T> extends AsyncSequenceOperators<T> {
   readonly iterator: AsyncIterableIterator<T>;
 }
@@ -158,7 +164,10 @@ applyMixins(AsyncSequenceImpl, [
   Min,
   MinBy,
   MinWith,
-  Minus
+  Minus,
+  None,
+  OnEach,
+  Partition
 ]);
 
 function applyMixins(derivedCtor: any, baseCtors: any[]) {
