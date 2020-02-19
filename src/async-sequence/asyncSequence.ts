@@ -52,6 +52,15 @@ import { Minus } from "./minus";
 import { None } from "./none";
 import { OnEach } from "./onEach";
 import { Partition } from "./partition";
+import { Plus } from "./plus";
+import { Reduce } from "./reduce";
+import { ReduceIndexed } from "./reduceIndexed";
+import { Reverse } from "./reverse";
+import { Sorted } from "./sorted";
+import { SortedBy } from "./sortedBy";
+import { SortedByDescending } from "./sortedByDescending";
+import { SortedDescending } from "./sortedDescending";
+import { SortedWith } from "./sortedWith";
 
 export interface AsyncSequenceOperators<T>
   extends Filter,
@@ -106,7 +115,16 @@ export interface AsyncSequenceOperators<T>
     Minus,
     None,
     OnEach,
-    Partition {}
+    Partition,
+    Plus,
+    Reduce,
+    ReduceIndexed,
+    Reverse,
+    Sorted,
+    SortedBy,
+    SortedByDescending,
+    SortedDescending,
+    SortedWith {}
 export interface AsyncSequence<T> extends AsyncSequenceOperators<T> {
   readonly iterator: AsyncIterableIterator<T>;
 }
@@ -167,7 +185,16 @@ applyMixins(AsyncSequenceImpl, [
   Minus,
   None,
   OnEach,
-  Partition
+  Partition,
+  Plus,
+  Reduce,
+  ReduceIndexed,
+  Reverse,
+  Sorted,
+  SortedBy,
+  SortedByDescending,
+  SortedDescending,
+  SortedWith
 ]);
 
 function applyMixins(derivedCtor: any, baseCtors: any[]) {
@@ -205,7 +232,7 @@ export function isAsyncIterableIterator<T>(
     : false;
 }
 
-function createIterator<T>(iterable: Iterable<T>): Iterator<T> {
+export function createIterator<T>(iterable: Iterable<T>): Iterator<T> {
   if (iterable === null) {
     throw new Error("Cannot create sequence for input: null");
   }
@@ -219,7 +246,7 @@ function createIterator<T>(iterable: Iterable<T>): Iterator<T> {
   }
   return iterable[Symbol.iterator]();
 }
-function createAsyncIterable<T>(
+export function createAsyncIterable<T>(
   iterator: Iterator<T>
 ): AsyncIterableIterator<T> {
   return {
