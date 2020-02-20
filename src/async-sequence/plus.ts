@@ -2,7 +2,7 @@ import { isAsyncSequence } from "../Sequence";
 import {
   AsyncSequence,
   createAsyncSequence,
-  createAsyncIterable,
+  createAsyncIterable
 } from "./asyncSequence";
 
 class AppendIterator<T> implements AsyncIterableIterator<T> {
