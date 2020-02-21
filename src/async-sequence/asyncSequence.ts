@@ -27,7 +27,6 @@ import { FlatMap } from "./flatMap";
 import { Flatten } from "./flatten";
 import { Last } from "./last";
 import { LastOrNull } from "./lastOrNull";
-import { asyncSequenceOf } from "../Sequence";
 import { Fold } from "./fold";
 import { FoldIndexed } from "./foldIndexed";
 import { ForEach } from "./forEach";
@@ -61,6 +60,14 @@ import { SortedBy } from "./sortedBy";
 import { SortedByDescending } from "./sortedByDescending";
 import { SortedDescending } from "./sortedDescending";
 import { SortedWith } from "./sortedWith";
+import { Single } from "./single";
+import { SingleOrNull } from "./singleOrNull";
+import { Sum } from "./sum";
+import { SumBy } from "./sumBy";
+import { Zip } from "./zip";
+import { Unzip } from "./unzip";
+import { ToMap } from "./toMap";
+import { ToSet } from "./toSet";
 
 export interface AsyncSequenceOperators<T>
   extends Filter,
@@ -120,11 +127,19 @@ export interface AsyncSequenceOperators<T>
     Reduce,
     ReduceIndexed,
     Reverse,
+    Single,
+    SingleOrNull,
     Sorted,
     SortedBy,
     SortedByDescending,
     SortedDescending,
-    SortedWith {}
+    SortedWith,
+    Sum,
+    SumBy,
+    Zip,
+    Unzip,
+    ToMap,
+    ToSet {}
 export interface AsyncSequence<T> extends AsyncSequenceOperators<T> {
   readonly iterator: AsyncIterableIterator<T>;
 }
@@ -190,11 +205,19 @@ applyMixins(AsyncSequenceImpl, [
   Reduce,
   ReduceIndexed,
   Reverse,
+  Single,
+  SingleOrNull,
   Sorted,
   SortedBy,
   SortedByDescending,
   SortedDescending,
-  SortedWith
+  SortedWith,
+  Sum,
+  SumBy,
+  Zip,
+  Unzip,
+  ToMap,
+  ToSet
 ]);
 
 function applyMixins(derivedCtor: any, baseCtors: any[]) {
@@ -204,6 +227,7 @@ function applyMixins(derivedCtor: any, baseCtors: any[]) {
     });
   });
 }
+export function asAsyncSequence<T>(iterable: Iterable<T>): AsyncSequence<T>;
 export function asAsyncSequence<T>(
   iterable: AsyncIterableIterator<T> | Iterable<T>
 ): AsyncSequence<T> {
