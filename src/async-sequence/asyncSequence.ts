@@ -229,6 +229,9 @@ function applyMixins(derivedCtor: any, baseCtors: any[]) {
 }
 export function asAsyncSequence<T>(iterable: Iterable<T>): AsyncSequence<T>;
 export function asAsyncSequence<T>(
+  iterable: AsyncIterableIterator<T>
+): AsyncSequence<T>;
+export function asAsyncSequence<T>(
   iterable: AsyncIterableIterator<T> | Iterable<T>
 ): AsyncSequence<T> {
   let asyncIterable: AsyncIterableIterator<T>;
